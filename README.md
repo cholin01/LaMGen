@@ -1,107 +1,108 @@
-# LaMGen: Multi-Target Molecule Generation Framework
-
-![image](https://github.com/user-attachments/assets/6660cc47-8105-4bb1-a215-3a50dbf10a7f)
-
-
-## Introduction
-
-Multi-target drugs hold great promise for treating complex diseases but remain challenging to design due to the need to satisfy multiple binding site constraints while maintaining favorable pharmacokinetics.
-
-Existing AI drug design methods mainly target single proteins and struggle to generalize to multi-target scenarios, especially for **3D dual-target molecule generation**, where effective solutions are lacking.
-
-To address this, we present **LaMGen**:
-
-> The first universal multi-target drug design framework based on large language models.
-
-## Key Features
-
-* 🔹 **Multi-target capability**: Supports **dual-target and triple-target molecular generation**.
-* 🔹 **ESM-C embedding**: Encodes multiple protein sequences efficiently.
-* 🔹 **Rotation-aware molecular tokens**: Enables spatially valid 3D molecule generation.
-* 🔹 **TriCoupleAttention module**: Captures detailed multi-level interactions between targets and ligands.
-* 🔹 **Differentiable potential energy surfaces**: Ensures chemical plausibility.
-* 🔹 **Task-free generation**: No task-specific retraining required.
-* 🔹 **High efficiency**: Generation speed is **30× faster** compared to traditional methods.
-* 🔹 **Superior performance**: Outperforms DualDiff and AIxFuse in binding affinity and molecular quality across multiple benchmarks.
+# 🚀 LaMGen: Multi-Target Molecule Generation Framework
 
 ---
 
-## Project Structure
+## 📖 Introduction
+
+Multi-target drugs hold great promise for treating complex diseases but remain challenging to design due to the need to satisfy multiple binding site constraints while maintaining favorable pharmacokinetics.
+
+Existing AI drug design methods mainly target **single proteins** and struggle to generalize to multi-target scenarios, especially for **3D dual-target molecule generation**.
+
+💡 **LaMGen** is the first **universal multi-target drug design framework based on large language models.**
+
+![Figure1](https://github.com/user-attachments/assets/c3d0ec7a-8e68-4cd5-ac98-9c2197f21baa)
+
+---
+
+## ✨ Key Features
+
+* ✅ **Multi-target support**: Dual-target & triple-target molecule generation.
+* 🧬 **ESM-C protein encoding**: Captures multiple protein sequences efficiently.
+* 🌀 **Rotation-aware tokens**: Enables spatially valid 3D molecule generation.
+* 🔀 **TriCoupleAttention module**: Captures deep multi-level target-ligand interactions.
+* ⚡ **Differentiable AI potential energy surfaces**: Guarantees chemical plausibility.
+* 🔧 **No task-specific retraining**: Supports arbitrary target combinations.
+* 🚀 **High speed**: Up to **30× faster** than traditional methods.
+* 🏆 **Superior performance**: Outperforms DualDiff on over 75% of dual-target tasks.
+
+---
+
+## 📂 Project Structure
 
 ```text
 LaMGen/
-├── .idea/               # IDE configuration files (can ignore)
+├── .idea/               # IDE configuration files (ignore)
 ├── Pretrained_model/    # Pretrained model checkpoints
 ├── __pycache__/         # Python cache files
 ├── data/                # Dataset files
 ├── docking/             # Docking-related scripts
-├── model/               # Model architecture and modules
-├── scripts/             # Training and generation scripts
+├── model/               # Model architecture and core modules
+├── scripts/             # Training and molecule generation scripts
 ├── utils/               # Helper functions and utilities
-└── LICENSE              # Project license
+└── LICENSE              # License file
 ```
 
 ---
 
-## Installation
+## ⚙️ Installation
 
 ```bash
 # Clone the repository
 git clone https://github.com/cholin01/LaMGen.git
 cd LaMGen
 
-# (Recommended) Create a new Python environment
+# (Recommended) Create a Python environment
 conda create -n lamgen python=3.8
 conda activate lamgen
 
-# Install required packages
+# Install dependencies
 pip install -r requirements.txt
 ```
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
-### 1. Preprocess Data
+### 🛠️ Data Preparation
 
-Ensure your dual-target datasets are placed under the `data/` directory.
+Place your dual-target datasets under the `data/` directory.
 
-### 2. Train Model
+### 🔥 Training
 
 ```bash
 python scripts/train_triple.py --model_path ./Pretrained_model/RTM_torsion_continue_v2_epoch7 --vocab_path ./data/torsion_voc.csv
 ```
 
-### 3. Generate Molecules
+### 🎯 Molecule Generation
 
 ```bash
 python scripts/gen_triple.py --model_path ./Pretrained_model/RTM_torsion_continue_v2_epoch7 --vocab_path ./data/torsion_voc.csv
 ```
 
-### 4. Evaluate Docking Results
+### 🧩 Docking Evaluation
 
-Use the provided `docking/` scripts to perform molecular docking evaluation.
-
----
-
-## Results
-
-* Outperformed DualDiff in **over 75%** of dual-target benchmarks.
-* Achieved **30× faster** conformer generation.
-* Demonstrated superior performance in **GSK3β–JNK3** dual-target tasks, surpassing AIxFuse.
-* Successfully extended to **triple-target** molecule generation.
+Use scripts in the `docking/` folder to perform molecular docking and affinity evaluation.
 
 ---
 
-## Visualization Example
+## 📊 Results
 
-*(You can insert visual results here, for example, UMAP plots or molecule structures)*
+* 🎯 Outperformed DualDiff in **over 75%** of dual-target benchmarks.
+* ⚡ Achieved **30× faster** conformer generation.
+* 🥇 In **GSK3β–JNK3** tasks, surpassed AIxFuse under multiple constraints.
+* 🔬 Successfully extended to **triple-target** molecule generation.
 
 ---
 
-## Citation
+## 🖼️ Visualization Example
 
-If you use LaMGen in your research, please cite:
+*(Insert UMAP plots, molecule structures, or performance graphs here)*
+
+---
+
+## 📚 Citation
+
+If you use LaMGen in your work, please cite:
 
 ```bibtex
 @article{LaMGen2025,
@@ -114,13 +115,25 @@ If you use LaMGen in your research, please cite:
 
 ---
 
-## License
+## 📜 License
 
-This project is licensed under the terms of the MIT license.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
 ---
 
-## Contact
+## 💬 Contact
 
-For questions or collaborations, please contact:
-**Cholin** – [GitHub](https://github.com/cholin01)
+For questions or collaborations:
+
+* GitHub: [@cholin01](https://github.com/cholin01)
+* Email: *(qlgxx0917@gmail.com)*
+
+---
+
+## 🎉 Acknowledgements
+
+Thanks to the developers of:
+
+* 🧬 ESM protein embeddings
+* 💊 PyTorch & Hugging Face Transformers
+* 🔍 RDKit & docking tools
