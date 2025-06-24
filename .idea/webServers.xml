@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4dbb2a52-57c5-4a79-bb7e-8e1d72c74480" name="tkm">
+        <fileTransfer accessType="SFTP" host="122.224.115.246" port="22201" sshConfigId="a05b46c4-054d-4e31-8255-618b103c6a20" sshConfig="qiaolin@122.224.115.246:22201 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

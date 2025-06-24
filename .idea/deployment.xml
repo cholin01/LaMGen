@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="gouqiaolin@125.71.97.58:2004 key" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="gouqiaolin@125.71.97.58:2004">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="gouqiaolin@125.71.97.58:2004 key">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/model/LaMGen" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="tkm">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

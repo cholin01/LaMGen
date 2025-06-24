@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteMappingsManager">
+    <list>
+      <list>
+        <remote-mappings server-id="python@sftp://qiaolin@122.224.115.246:22201/home/qiaolin/miniconda3/envs/my3/bin/python3.8" />
+        <remote-mappings server-id="python@sftp://gouqiaolin@125.71.97.58:2004/home/gouqiaolin/miniconda3/envs/my3/bin/python3.8" />
+      </list>
+    </list>
+  </component>
+</project>
