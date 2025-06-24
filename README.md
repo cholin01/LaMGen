@@ -70,13 +70,21 @@ Place your dual-target datasets under the `data/` directory.
 ### 🔥 Training
 
 ```bash
-python scripts/train_triple.py --model_path ./Pretrained_model/RTM_torsion_continue_v2_epoch7 --vocab_path ./data/torsion_voc.csv
+# If you want to train a dual-target molecule generation model, run:
+python scripts/train_dual.py
+
+# If you want to train a triple-target molecule generation model, run:
+python scripts/train_triple.py
 ```
 
 ### 🎯 Molecule Generation
 
 ```bash
-python scripts/gen_triple.py --model_path ./Pretrained_model/RTM_torsion_continue_v2_epoch7 --vocab_path ./data/torsion_voc.csv
+# If you want to generate dual-target molecules, run:
+python scripts/gen_dual.py
+
+# If you want to generate triple-target molecules, run:
+python scripts/gen_triple.py
 ```
 
 ### 🧩 Docking Evaluation
