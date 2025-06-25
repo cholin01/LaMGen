@@ -65,7 +65,7 @@ pip install -r requirements.txt
 
 ### 🛠️ Data Preparation
 
-Place your dual-target datasets under the `data/` directory.
+Place your dual-targes or triple-targets under the `data/` directory.
 
 ### 🔥 Training
 
