@@ -10,7 +10,8 @@ Existing AI drug design methods mainly target **single proteins** and struggle t
 
 💡 **LaMGen** is the first **universal multi-target drug design framework based on large language models.**
 
-![Figure1](https://github.com/user-attachments/assets/c3d0ec7a-8e68-4cd5-ac98-9c2197f21baa)
+[Figure1.tif](https://github.com/user-attachments/files/22002392/Figure1.tif)
+
 
 ---
 
