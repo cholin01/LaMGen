@@ -4,11 +4,11 @@
 
 ## 📖 Introduction
 
-Multi-target drugs hold great promise for treating complex diseases but remain challenging to design due to the need to satisfy multiple binding site constraints while maintaining favorable pharmacokinetics.
+Multi-target drugs hold great promise for treating complex diseases, yet their rational design remains highly challenging due to the need to simultaneously satisfy multiple binding-site constraints while ensuring favorable pharmacokinetic properties. 
 
-Existing AI drug design methods mainly target **single proteins** and struggle to generalize to multi-target scenarios, especially for **3D dual-target molecule generation**.
+Existing methodologies predominantly rely on **ligand-based approaches**, which lack sufficient biological context and are often confined to specific target pairs, resulting in **limited generalizability**, particularly for triple-target tasks, which remain largely unaddressed.
 
-💡 **LaMGen** is the first **universal multi-target drug design framework based on large language models.**
+💡 **LaMGen** is the first **general-purpose multi-target drug design framework powered by large language models.**
 
 <img width="7028" height="8410" alt="Figure1" src="https://github.com/user-attachments/assets/1c567556-22cc-479b-b88c-73365b9de9fe" />
 
@@ -25,7 +25,7 @@ Existing AI drug design methods mainly target **single proteins** and struggle t
 * ⚡ **Differentiable AI potential energy surfaces**: Guarantees chemical plausibility.
 * 🔧 **No task-specific retraining**: Supports arbitrary target combinations.
 * 🚀 **High speed**: Up to **30× faster** than traditional methods.
-* 🏆 **Superior performance**: Outperforms DualDiff on over 75% of dual-target tasks.
+* 🏆 **Superior performance**: Outperforms diffusion-based approaches in 15 of the 20 dual-target tasks.
 
 ---
 
@@ -104,9 +104,21 @@ Use scripts in the `docking/` folder to perform molecular docking and affinity e
 
 ---
 
-## 🖼️ Visualization Example
+## 📊 Model Performance
 
-*(Insert UMAP plots, molecule structures, or performance graphs here)*
+<table>
+  <tr>
+    <td>
+      <img src="https://github.com/user-attachments/assets/43190783-87f5-47b4-832f-8fb65f598d06" width="400"><br>
+       Comparison of JNK3 and GSK3β inhibitors
+    </td>
+    <td>
+      <img src="https://github.com/user-attachments/assets/a000fe60-ec16-41e5-9842-f18b94e20ea8" width="400"><br>
+       Representative results for three dual-target systems.
+    </td>
+  </tr>
+</table>
+
 
 ---
 
