@@ -1,7 +1,7 @@
 import os
 import re
 import sys
-sys.path.append('/home/gouqiaolin/model/LaMGen')
+sys.path.append('/path/to/LaMGen')
 import pickle
 import torch
 import argparse
@@ -198,7 +198,7 @@ class Cluster_Dataset(Dataset):
         self.geos = data_df['geos']
 
         self.tokenizer = tokenizer
-        self.protein_dir = '/home/gouqiaolin/dataset/Papyrus/ESMC'
+        self.protein_dir = '/path/to/ESMC'
 
         if indices is not None:
 
@@ -509,7 +509,7 @@ def get_parameter_number(model):
 
 if __name__ == '__main__':
     args = setup_args()
-    args.model_path = './Pretrained_model/RTM_torsion_countinue_v2_epoch7'
+    args.model_path = './Pretrained_model'
     tokenizer = ExpressionBertTokenizer.from_pretrained(args.vocab_path)
 
     world_size = 2
