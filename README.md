@@ -151,9 +151,9 @@ If you use LaMGen in your work, please cite:
 
 ```bibtex
 @article{LaMGen2025,
-  title={LaMGen: A Universal Multi-Target Molecular Generation Framework Based on Large Language Models},
-  author={Your authors...},
-  journal={Your journal...},
+  title={LaMGen: LLM-Based 3D Molecular Generation for Multi-Target Drug Design},
+  author={Qiaolin Gou},
+  journal={***},
   year={2025}
 }
 ```
