@@ -1,7 +1,7 @@
 import re
 import os
 import sys
-sys.path.append('/home/gouqiaolin/model/LaMGen')
+sys.path.append('/path/to/LaMGen')
 import pickle
 import torch
 import argparse
@@ -202,7 +202,7 @@ class Cluster_Dataset(Dataset):
         self.geos = data_df['geos']
 
         self.tokenizer = tokenizer
-        self.protein_dir = '/home/gouqiaolin/dataset/Papyrus/ESMC'
+        self.protein_dir = '/path/to/ESMC'
 
         if indices is not None:
 
@@ -454,7 +454,7 @@ def train(rank, args, world_size):
                 logging.warning(f"OOM at step {batch_steps}, skipping batch...")
                 optimizer.zero_grad()
                 torch.cuda.empty_cache()
-                continue  # 只跳过OOM的batch
+                continue  
 
         if rank == 0 and epoch >= 0:
             torch.save(model.state_dict(), f"./checkpoint/triple/ckpt_3targets_{epoch}")
@@ -524,7 +524,7 @@ def get_parameter_number(model):
 
 if __name__ == '__main__':
     args = setup_args()
-    args.model_path = './Pretrained_model/RTM_torsion_countinue_v2_epoch7'
+    args.model_path = './Pretrained_model'
     tokenizer = ExpressionBertTokenizer.from_pretrained(args.vocab_path)
 
     world_size = 2
