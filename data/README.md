@@ -4,7 +4,7 @@
 
 ## Dataset Access
 
-The MTD2025 dataset can be accessed via: [https://doi.org/10.5281/zenodo.17197079](https://doi.org/10.5281/zenodo.17197079)
+The MTD2025 dataset can be accessed via: https://zenodo.org/records/17197079
 
 ## File Overview
 
