@@ -97,7 +97,7 @@ python scripts/train_triple.py
 
 ### 🎯 Molecule Generation
 
-# LaMGen Model Checkpoints
+### LaMGen Model Checkpoints
 
 The **LaMGen** model checkpoints are publicly available at [Zenodo](https://zenodo.org/records/17198652), including:
 
