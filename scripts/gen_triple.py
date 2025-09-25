@@ -27,7 +27,7 @@ class MyDataset(Dataset):
 
 def setup_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_path', default="../checkpoint/triple/ckpt_3targets_10", type=str, help='')
+    parser.add_argument('--model_path', default="../checkpoint/triple/triple_target_ckpt", type=str, help='')
     parser.add_argument('--vocab_path', default="../data/torsion_voc.csv", type=str, help='')
     parser.add_argument('--output_path', default="../generation/egfr_her2_vgfr_10.csv", type=str, help='')
     parser.add_argument('--batch_size', default=50, type=int, required=False, help='batch size')
@@ -119,9 +119,9 @@ def get_parameter_number(model):
 
 def load_protein():
 
-    npy1 = '/home/gouqiaolin/dataset/Papyrus/ESMC/P42336_WT.npy'
-    npy2 = '/home/gouqiaolin/dataset/Papyrus/ESMC/P31749_WT.npy'
-    npy3 = '/home/gouqiaolin/dataset/Papyrus/ESMC/P42345_WT.npy'
+    npy1 = '../ESMC_example/P42336_WT.npy'
+    npy2 = '../ESMC_example/P31749_WT.npy'
+    npy3 = '../ESMC_example/P42345_WT.npy'
 
     protein_list1 = []
     protein_list2 = []
@@ -154,7 +154,7 @@ if __name__ == '__main__':
     model_path = args.model_path
 
     tokenizer = ExpressionBertTokenizer.from_pretrained(args.vocab_path)
-    model = LaMGen_triple(pretrain_path='../Pretrained_model/RTM_torsion_countinue_v2_epoch7', config=Ada_config)
+    model = LaMGen_triple(pretrain_path='../Pretrained_model', config=Ada_config)
 
     param_dict = {key.replace("module.", ""): value for key, value in
                   torch.load(model_path, map_location='cuda').items()}
