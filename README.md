@@ -1,4 +1,4 @@
-# 🚀 LaMGen: Multi-Target Molecule Generation Framework
+# 🚀 LaMGen: LLM-Based 3D Molecular Generation for Multi-Target Drug Design
 
 ---
 
@@ -34,14 +34,19 @@ Existing methodologies predominantly rely on **ligand-based approaches**, which 
 ```text
 LaMGen/
 ├── .idea/               # IDE configuration files (ignore)
-├── Pretrained_model/    # Pretrained model checkpoints
+├── ESMC_example/        # Example ESM-C protein embeddings used for dual-target and triple-target molecule generation scripts (gen_dual.py and gen_triple.py)
 ├── __pycache__/         # Python cache files
+├── checkpoint/          # Pretrained and multi-target (dual- & triple-target) model checkpoints
 ├── data/                # Dataset files
 ├── docking/             # Docking-related scripts
 ├── model/               # Model architecture and core modules
 ├── scripts/             # Training and molecule generation scripts
 ├── utils/               # Helper functions and utilities
-└── LICENSE              # License file
+├── LICENSE              # License file
+├── README.md            # Overview of LaMGen introduction and usage instructions
+├── lamgen_env.yml       # Conda environment file with all dependencies required to run LaMGen
+└── requirements.txt     # Python pip dependencies for LaMGen, in case Conda is not used
+
 ```
 
 ---
@@ -65,6 +70,17 @@ pip install -r requirements.txt
 
 ## 🚀 Quick Start
 
+### 📂 Dataset
+
+If you want to train the model, the **MTD2025 dataset** can be accessed via: [https://zenodo.org/records/17197079](https://zenodo.org/records/17197079)
+
+The dataset includes:  
+
+- **Dual_targets.csv** — Contains all dual-target molecules  
+- **Triple_targets.csv** — Contains all triple-target molecules  
+- **LiTEN_OPT.sdf** — All ligand molecules after LiTEN-FF optimization; provides low-energy 3D conformations  
+- **ESMC_embedding.tar.gz** — All protein embeddings for training and test sets 
+
 ### 🛠️ Data Preparation
 
 Place your dual-targes or triple-targets under the `data/` directory.
@@ -81,11 +97,18 @@ python scripts/train_triple.py
 
 ### 🎯 Molecule Generation
 
+# LaMGen Model Checkpoints
+
+The **LaMGen** model checkpoints are publicly available at [Zenodo](https://zenodo.org/records/17198652), including:
+
+- **Small-molecule pretraining model** trained on the GEOM dataset  
+- **Dual-target and triple-target generation models** for multi-target molecule design
+
 ```bash
-# If you want to generate dual-target molecules, run:
+# If you want to generate dual-target molecules, download the corresponding checkpoints and run:
 python scripts/gen_dual.py
 
-# If you want to generate triple-target molecules, run:
+# If you want to generate triple-target molecules, download the corresponding checkpoints and run
 python scripts/gen_triple.py
 ```
 
