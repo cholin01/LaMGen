@@ -117,7 +117,7 @@ if __name__ == '__main__':
     model_path = args.model_path
 
     tokenizer = ExpressionBertTokenizer.from_pretrained(args.vocab_path)
-    model = LaMGen_dual(pretrain_path='../Pretrained_model/RTM_torsion_countinue_v2_epoch7', config=Ada_config)
+    model = LaMGen_dual(pretrain_path='../Pretrained_model', config=Ada_config)
 
     param_dict = {key.replace("module.", ""): value for key, value in
                   torch.load(model_path, map_location=torch.device('cuda')).items()}
@@ -131,7 +131,7 @@ if __name__ == '__main__':
 
     start_time = time.time()
     all_output = []
-    protein_dir = '/home/gouqiaolin/dataset/Papyrus/ESMC'
+    protein_dir = '../ESMC_example' # path/to/ESMC
 
     for idx, row in tqdm(data_df.iterrows(), total=len(data_df)):
         tar1 = row['target1'] + '_WT'
