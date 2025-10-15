@@ -195,8 +195,8 @@ class Cluster_Dataset(Dataset):
         protein1 = data_df['target_id1']
         protein2 = data_df['target_id2']
 
-        self.smiles = data_df['smiles']
-        self.geos = data_df['geos']
+        self.smiles = data_df['smiles'][indices]
+        self.geos = data_df['geos'][indices]
 
         self.tokenizer = tokenizer
         self.protein_dir = 'path/to/ESMC'
