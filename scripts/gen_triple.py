@@ -1,5 +1,5 @@
+import os
 import sys
-sys.path.append('/home/gouqiaolin/model/LaMGen')
 import argparse
 import numpy as np
 import pandas as pd
@@ -8,6 +8,8 @@ import torch
 from torch.utils.data import Dataset
 import torch.nn.functional as F
 from tqdm import tqdm
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from model.lamgen_model import LaMGen_triple
 from utils.bert_tokenizer import ExpressionBertTokenizer
 from train_triple import Ada_config
