@@ -1,7 +1,7 @@
 import os
 import re
 import sys
-sys.path.append('/path/to/LaMGen')
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import pickle
 import torch
 import argparse
