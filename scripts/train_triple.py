@@ -1,7 +1,6 @@
 import re
 import os
 import sys
-sys.path.append('/path/to/LaMGen')
 import pickle
 import torch
 import argparse
@@ -21,10 +20,13 @@ from torch.utils.data.distributed import DistributedSampler
 from torch.nn.parallel import DistributedDataParallel as DDP
 import torch.distributed as dist
 from utils.early_stop.pytorchtools import EarlyStopping
+from datetime import timedelta
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from model.lamgen_model import LaMGen_triple
 from utils.bert_tokenizer import ExpressionBertTokenizer
 from torch.distributed.algorithms.ddp_comm_hooks import default_hooks as hooks
-from datetime import timedelta
+
 
 # os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
 
