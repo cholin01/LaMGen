@@ -1,6 +1,6 @@
 # LaMGen Model Checkpoints
 
-The **LaMGen** model checkpoints are publicly available at [Zenodo](https://zenodo.org/records/17198652).  
+The **LaMGen** model checkpoints are publicly available at [Zenodo](https://zenodo.org/records/18218936).  
 
 These checkpoints include:  
 
@@ -13,4 +13,5 @@ These checkpoints include:
 ## Usage
 
 You can download the checkpoint files from the Zenodo link above and load them in your LaMGen pipeline for further inference or fine-tuning.
+
 
