@@ -74,14 +74,13 @@ pip install -r requirements.txt
 
 ### 📂 Dataset
 
-If you want to train the model, the **MTD2025 dataset** can be accessed via: [https://zenodo.org/records/17197079](https://zenodo.org/records/17197079)
-
+If you want to train the model, the **MTD2025 dataset** can be accessed via: [Zenodo](https://zenodo.org/records/18297683)
 The dataset includes:  
 
 - **Dual_targets.csv** — Contains all dual-target molecules  
 - **Triple_targets.csv** — Contains all triple-target molecules  
 - **LiTEN_OPT.sdf** — All ligand molecules after LiTEN-FF optimization; provides low-energy 3D conformations  
-- **ESMC_embedding.tar.gz** — All protein embeddings for training and test sets 
+- **ESMC_embedding.tar.gz** — All protein embeddings for training and test sets (see Version v1)
 
 ### 🛠️ Data Preparation
 
@@ -101,7 +100,7 @@ python scripts/train_triple.py
 
 ### LaMGen Model Checkpoints
 
-The **LaMGen** model checkpoints are publicly available at [Zenodo](https://zenodo.org/records/17198652), including:
+The **LaMGen** model checkpoints are publicly available at [Zenodo](https://zenodo.org/records/18218936), including:
 
 - **Small-molecule pretraining model** trained on the GEOM dataset  
 - **Dual-target and triple-target generation models** for multi-target molecule design
@@ -156,8 +155,7 @@ If you use LaMGen in your work, please cite:
 ```bibtex
 @article{LaMGen2026,
   title={LaMGen: LLM-Based 3D Molecular Generation for Multi-Target Drug Design},
-  author={Qiaolin Gou},
-  journal={***},
+  author={Qun Su, Qiaolin Gou},
   year={2026}
 }
 ```
