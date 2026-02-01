@@ -21,10 +21,11 @@ def SetDihedral(conf, atom_idx, new_vale):
     # dihedral_value_after = rdMolTransforms.GetDihedralRad(conf, atom_idx[0], atom_idx[1], atom_idx[2], atom_idx[3])
 
 
-
 def apply_changes(mol, values, rotable_bonds, conf_id):
     opt_mol = copy.copy(mol)
-    [SetDihedral(opt_mol.GetConformer(conf_id), rotable_bonds[r], values[r]) for r in range(len(rotable_bonds))]
+    num_changes = min(len(values), len(rotable_bonds))
+    for r in range(num_changes):
+        SetDihedral(opt_mol.GetConformer(conf_id), rotable_bonds[r], values[r])
     return opt_mol
 
 
@@ -63,28 +64,38 @@ class OptimizeConformer:
         return RMSD(self.mol, self.true_mol, self.probe_id, self.ref_id)
 
 
-
 def get_torsion_angles(mol):
     torsions_list = []
     G = nx.Graph()
     for i, atom in enumerate(mol.GetAtoms()):
         G.add_node(i)
-    nodes = set(G.nodes())
     for bond in mol.GetBonds():
         start, end = bond.GetBeginAtomIdx(), bond.GetEndAtomIdx()
         G.add_edge(start, end)
+
     for e in G.edges():
+        if len(e) != 2:
+            print("⚠️ Invalid edge:", e)
+            continue
         G2 = copy.deepcopy(G)
-        G2.remove_edge(*e)
+        try:
+            G2.remove_edge(*e)
+        except Exception as ex:
+            print("⚠️ Failed removing edge:", e, "error:", ex)
+            continue
         if nx.is_connected(G2):
             continue
-        l = list(sorted(nx.connected_components(G2), key=len)[0])
-        if len(l) < 2: continue
+        comps = sorted(nx.connected_components(G2), key=len)
+        if len(comps[0]) < 2:
+            continue
         n0 = list(G2.neighbors(e[0]))
         n1 = list(G2.neighbors(e[1]))
-        torsions_list.append(
-            (n0[0], e[0], e[1], n1[0])
-        )
+
+        if not n0 or not n1:
+            continue
+
+        torsions_list.append((n0[0], e[0], e[1], n1[0]))
+
     return torsions_list
 
 
