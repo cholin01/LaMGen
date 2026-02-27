@@ -14,6 +14,7 @@ from model.lamgen_model import LaMGen_dual
 from utils.bert_tokenizer import ExpressionBertTokenizer
 from train_triple import Ada_config
 
+abs_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 class MyDataset(Dataset):
     def __init__(self, data_list):
@@ -29,9 +30,9 @@ class MyDataset(Dataset):
 
 def setup_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_path', default='../checkpoint/dual/ckpt_8', type=str, help='')
-    parser.add_argument('--vocab_path', default="../data/torsion_voc.csv", type=str, help='')
-    parser.add_argument('--output_path', default='../generation/test_set1_gen.csv', type=str, help='')
+    parser.add_argument('--model_path', default=abs_path + '/checkpoint/dual/dual_target_ckpt', type=str, help='')
+    parser.add_argument('--vocab_path', default=abs_path + "/data/torsion_voc.csv", type=str, help='')
+    parser.add_argument('--output_path', default=abs_path + '/generation/test_set1_gen.csv', type=str, help='')
     parser.add_argument('--batch_size', default=50, type=int, required=False, help='batch size')
     parser.add_argument('--epochs', default=20, type=int, required=False, help='epochs')
     return parser.parse_args()
@@ -118,14 +119,14 @@ if __name__ == '__main__':
     model_path = args.model_path
 
     tokenizer = ExpressionBertTokenizer.from_pretrained(args.vocab_path)
-    model = LaMGen_dual(pretrain_path='../Pretrained_model', config=Ada_config)
+    model = LaMGen_dual(pretrain_path=abs_path + '/Pretrained_model', config=Ada_config)
 
     param_dict = {key.replace("module.", ""): value for key, value in
                   torch.load(model_path, map_location=torch.device('cuda')).items()}
 
     model.load_state_dict(param_dict)
 
-    csv_path = '../data/test_set2.csv'
+    csv_path = abs_path + '/data/test_set2.csv'
 
     data_df = pd.read_csv(csv_path)
     print(data_df)
