@@ -22,12 +22,13 @@ import torch.distributed as dist
 from torch.distributed.algorithms.ddp_comm_hooks import default_hooks as hooks
 from datetime import timedelta
 
-sys.path.append((os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname((os.path.dirname(os.path.abspath(__file__))))
 from utils.early_stop.pytorchtools import EarlyStopping
 from model.lamgen_model import LaMGen_dual
 from utils.bert_tokenizer import ExpressionBertTokenizer
 
-
+abs_path = os.path.dirname((os.path.dirname(os.path.abspath(__file__)))
+                           
 br_re = re.compile('Br')
 cl_re = re.compile('Cl')
 smiles_token_re = re.compile('(\[[^\[\]]{1,6}\])')
@@ -80,10 +81,10 @@ class MyDataset(Dataset):
 
 def setup_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_path', default="Pretrained_model", type=str, help='')
-    parser.add_argument('--vocab_path', default="./data/torsion_voc.csv", type=str, help='')
-    parser.add_argument('--every_step_save_path', default="./checkpoint/finetuning", type=str, help='')
-    parser.add_argument('--early_stop_path', default="./checkpoint/finetuning", type=str, help='')
+    parser.add_argument('--model_path', default=abs_path + "/Pretrained_model", type=str, help='')
+    parser.add_argument('--vocab_path', default=abs_path + "/data/torsion_voc.csv", type=str, help='')
+    parser.add_argument('--every_step_save_path', default=abs_path + "/checkpoint/finetuning", type=str, help='')
+    parser.add_argument('--early_stop_path', default=abs_path + "/checkpoint/finetuning", type=str, help='')
     parser.add_argument('--batch_size', default=12, type=int, required=False, help='batch size')
     parser.add_argument('--epochs', default=15, type=int, required=False, help='epochs')
     parser.add_argument('--warmup_steps', default=20000, type=int, required=False, help='warm up steps')
@@ -511,7 +512,7 @@ def get_parameter_number(model):
 
 if __name__ == '__main__':
     args = setup_args()
-    args.model_path = './Pretrained_model'
+    args.model_path = abs_path + '/Pretrained_model'
     tokenizer = ExpressionBertTokenizer.from_pretrained(args.vocab_path)
 
     world_size = 2
