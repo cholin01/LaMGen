@@ -14,6 +14,7 @@ from model.lamgen_model import LaMGen_triple
 from utils.bert_tokenizer import ExpressionBertTokenizer
 from train_triple import Ada_config
 
+abs_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 class MyDataset(Dataset):
     def __init__(self, data_list):
@@ -29,9 +30,9 @@ class MyDataset(Dataset):
 
 def setup_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_path', default="../checkpoint/triple/triple_target_ckpt", type=str, help='')
-    parser.add_argument('--vocab_path', default="../data/torsion_voc.csv", type=str, help='')
-    parser.add_argument('--output_path', default="../generation/egfr_her2_vgfr_10.csv", type=str, help='')
+    parser.add_argument('--model_path', default=abs_path + "/checkpoint/triple/triple_target_ckpt", type=str, help='')
+    parser.add_argument('--vocab_path', default=abs_path + "/data/torsion_voc.csv", type=str, help='')
+    parser.add_argument('--output_path', default=abs_path + "/generation/egfr_her2_vgfr_10.csv", type=str, help='')
     parser.add_argument('--batch_size', default=50, type=int, required=False, help='batch size')
     parser.add_argument('--epochs', default=200, type=int, required=False, help='epochs')
     return parser.parse_args()
@@ -121,9 +122,9 @@ def get_parameter_number(model):
 
 def load_protein():
 
-    npy1 = '../ESMC_example/P42336_WT.npy'
-    npy2 = '../ESMC_example/P31749_WT.npy'
-    npy3 = '../ESMC_example/P42345_WT.npy'
+    npy1 = abs_path + '/ESMC_example/P42336_WT.npy'
+    npy2 = abs_path + '/ESMC_example/P31749_WT.npy'
+    npy3 = abs_path + '/ESMC_example/P42345_WT.npy'
 
     protein_list1 = []
     protein_list2 = []
@@ -156,7 +157,7 @@ if __name__ == '__main__':
     model_path = args.model_path
 
     tokenizer = ExpressionBertTokenizer.from_pretrained(args.vocab_path)
-    model = LaMGen_triple(pretrain_path='../Pretrained_model', config=Ada_config)
+    model = LaMGen_triple(pretrain_path=abs_path + '/Pretrained_model', config=Ada_config)
 
     param_dict = {key.replace("module.", ""): value for key, value in
                   torch.load(model_path, map_location='cuda').items()}
