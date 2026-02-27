@@ -53,19 +53,42 @@ LaMGen/
 
 ---
 
-## ⚙️ Installation
+## 📥 Installation
+
+### 🧠 Option 1: Build via Shell Script (`lamgen_env.sh`)
+
+This method uses a dedicated bash script to automate the environment creation and dependency installation, including specific **PyTorch 2.4.0** and **CUDA 11.8** configurations.
 
 ```bash
-# Clone the repository
+# 1. Clone the repository
 git clone -b master https://github.com/cholin01/LaMGen.git
 cd LaMGen
 
-# (Recommended) Create a Python environment
-conda create -n lamgen python=3.8
+# 2. Execute the setup script
+bash lamgen_env.sh
+
+# 3. Activate the environment
 conda activate lamgen
 
-# Install dependencies
-pip install -r requirements.txt
+```
+
+---
+
+#### 📄 Option 2: Create from `lamgen_env.yml`
+
+This is the standard Conda approach, ideal for users who prefer a declarative way to manage dependencies. This file contains all necessary libraries (e.g., **RDKit**, **ASE**, and **Transformers**) required for the **LiTEN-VERSE** framework.
+
+```bash
+# 1. Clone the repository
+git clone -b master https://github.com/cholin01/LaMGen.git
+cd LaMGen
+
+# 2. Create the environment from the YAML file
+conda env create -f lamgen_env.yml
+
+# 3. Activate the environment
+conda activate lamgen
+
 ```
 
 ---
