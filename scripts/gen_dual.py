@@ -34,7 +34,7 @@ def setup_args():
     parser.add_argument('--vocab_path', default=abs_path + "/data/torsion_voc.csv", type=str, help='')
     parser.add_argument('--output_path', default=abs_path + '/generation/test_set1_gen.csv', type=str, help='')
     parser.add_argument('--batch_size', default=50, type=int, required=False, help='batch size')
-    parser.add_argument('--epochs', default=20, type=int, required=False, help='epochs')
+    parser.add_argument('--epochs', default=2, type=int, required=False, help='epochs')
     return parser.parse_args()
 
 def decode(matrix):
