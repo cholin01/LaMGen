@@ -22,7 +22,7 @@ import torch.distributed as dist
 from utils.early_stop.pytorchtools import EarlyStopping
 from datetime import timedelta
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append((os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from model.lamgen_model import LaMGen_triple
 from utils.bert_tokenizer import ExpressionBertTokenizer
 from torch.distributed.algorithms.ddp_comm_hooks import default_hooks as hooks
