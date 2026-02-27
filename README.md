@@ -128,6 +128,40 @@ The **LaMGen** model checkpoints are publicly available at [Zenodo](https://zeno
 - **Small-molecule pretraining model** trained on the GEOM dataset  
 - **Dual-target and triple-target generation models** for multi-target molecule design
 
+## 📁 Directory Structure
+
+After downloading the weights, please organize them as follows.
+**Important:** Rename `pretrain_model.bin` to `pytorch_model.bin`.
+
+```plaintext
+LaMGen/
+├── Pretrained_model/
+│   └── pytorch_model.bin      # Renamed from pretrain_model.bin
+├── checkpoint/
+│   ├── dual/
+│   │   └── dual_target_ckpt
+│   └── triple/
+│       └── triple_target_ckpt
+└── ...
+```
+
+---
+
+## ⚙️ Quick Setup (Linux / macOS)
+
+You can automatically create the required directories and move the files using:
+
+```bash
+# Create directory tree
+mkdir -p Pretrained_model checkpoint/dual checkpoint/triple
+
+# Move and rename files
+mv pretrain_model.bin Pretrained_model/pytorch_model.bin
+mv dual_target_ckpt checkpoint/dual/
+mv triple_target_ckpt checkpoint/triple/
+```
+---
+
 ```bash
 # If you want to generate dual-target molecules, download the corresponding checkpoints and run:
 python scripts/gen_dual.py
