@@ -128,7 +128,7 @@ The **LaMGen** model checkpoints are publicly available at [Zenodo](https://zeno
 - **Small-molecule pretraining model** trained on the GEOM dataset  
 - **Dual-target and triple-target generation models** for multi-target molecule design
 
-## 📁 Directory Structure
+#### 📁 Directory Structure
 
 After downloading the weights, please organize them as follows.
 **Important:** Rename `pretrain_model.bin` to `pytorch_model.bin`.
@@ -147,7 +147,7 @@ LaMGen/
 
 ---
 
-## ⚙️ Quick Setup (Linux / macOS)
+#### ⚙️ Quick Setup (Linux / macOS)
 
 You can automatically create the required directories and move the files using:
 
