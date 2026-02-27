@@ -27,7 +27,7 @@ from model.lamgen_model import LaMGen_triple
 from utils.bert_tokenizer import ExpressionBertTokenizer
 from torch.distributed.algorithms.ddp_comm_hooks import default_hooks as hooks
 
-abs_path = os.path.dirname((os.path.dirname(os.path.abspath(__file__)))
+abs_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
 
 Ada_config = GPT2Config(
