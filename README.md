@@ -57,7 +57,7 @@ LaMGen/
 
 ```bash
 # Clone the repository
-git clone https://github.com/cholin01/LaMGen.git
+git clone -b master https://github.com/cholin01/LaMGen.git
 cd LaMGen
 
 # (Recommended) Create a Python environment
