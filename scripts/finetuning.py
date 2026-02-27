@@ -22,12 +22,12 @@ import torch.distributed as dist
 from torch.distributed.algorithms.ddp_comm_hooks import default_hooks as hooks
 from datetime import timedelta
 
-sys.path.append(os.path.dirname((os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.early_stop.pytorchtools import EarlyStopping
 from model.lamgen_model import LaMGen_dual
 from utils.bert_tokenizer import ExpressionBertTokenizer
 
-abs_path = os.path.dirname((os.path.dirname(os.path.abspath(__file__)))
+abs_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
                            
 br_re = re.compile('Br')
 cl_re = re.compile('Cl')
