@@ -76,7 +76,7 @@ conda activate lamgen
 
 #### 📄 Option 2: Create from `lamgen_env.yml`
 
-This is the standard Conda approach, ideal for users who prefer a declarative way to manage dependencies. This file contains all necessary libraries (e.g., **RDKit**, **ASE**, and **Transformers**) required for the **LiTEN-VERSE** framework.
+This is the standard Conda approach, ideal for users who prefer a declarative way to manage dependencies. This file contains all necessary libraries required for the **LaMGen** framework.
 
 ```bash
 # 1. Clone the repository
