@@ -133,7 +133,7 @@ if __name__ == '__main__':
 
     start_time = time.time()
     all_output = []
-    protein_dir = '../ESMC_example' # path/to/ESMC
+    protein_dir = abs_path + '/ESMC_example' # path/to/ESMC
 
     for idx, row in tqdm(data_df.iterrows(), total=len(data_df)):
         tar1 = row['target1'] + '_WT'
