@@ -21,12 +21,12 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 import torch.distributed as dist
 from datetime import timedelta
 
-sys.path.append((os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname((os.path.dirname(os.path.abspath(__file__))))
 from utils.early_stop.pytorchtools import EarlyStopping
 from model.lamgen_model import LaMGen_dual
 from utils.bert_tokenizer import ExpressionBertTokenizer
 
-
+abs_path = os.path.dirname((os.path.dirname(os.path.abspath(__file__)))
 
 br_re = re.compile('Br')
 cl_re = re.compile('Cl')
@@ -80,10 +80,10 @@ class MyDataset(Dataset):
 
 def setup_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_path', default="Pretrained_model", type=str, help='')
-    parser.add_argument('--vocab_path', default="./data/torsion_voc.csv", type=str, help='')
-    parser.add_argument('--every_step_save_path', default="./checkpoint/dual", type=str, help='')
-    parser.add_argument('--early_stop_path', default="./checkpoint/dual", type=str, help='')
+    parser.add_argument('--model_path', default=abs_path + "/Pretrained_model", type=str, help='')
+    parser.add_argument('--vocab_path', default=abs_path + "/data/torsion_voc.csv", type=str, help='')
+    parser.add_argument('--every_step_save_path', default=abs_path + "/checkpoint/dual", type=str, help='')
+    parser.add_argument('--early_stop_path', default=abs_path + "/checkpoint/dual", type=str, help='')
     parser.add_argument('--batch_size', default=12, type=int, required=False, help='batch size')  #  24
     parser.add_argument('--epochs', default=40, type=int, required=False, help='epochs')
     parser.add_argument('--warmup_steps', default=20000, type=int, required=False, help='warm up steps')
@@ -201,7 +201,7 @@ class Cluster_Dataset(Dataset):
         self.geos = data_df['geos'][indices].tolist()
 
         self.tokenizer = tokenizer
-        self.protein_dir = 'path/to/ESMC'
+        self.protein_dir = abs_path + '/ESMC_example'
 
         if indices is not None:
 
@@ -297,7 +297,7 @@ def setup(rank, world_size):
 
 def set_dataset(args):
 
-    csv_path = './data/cluster_2targets.csv'
+    csv_path = abs_path + '/data/cluster_2targets.csv'
     data_df = pd.read_csv(csv_path)
     data_length = len(data_df)
 
@@ -501,7 +501,7 @@ if __name__ == '__main__':
     args = setup_args()
     print(args)
 
-    args.model_path = './Pretrained_model'
+    args.model_path = abs_path + '/Pretrained_model'
     tokenizer = ExpressionBertTokenizer.from_pretrained(args.vocab_path)
 
     world_size = torch.cuda.device_count()
