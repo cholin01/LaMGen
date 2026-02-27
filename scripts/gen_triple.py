@@ -156,6 +156,11 @@ if __name__ == '__main__':
     args = setup_args()
     model_path = args.model_path
 
+    output_dir = os.path.dirname(args.output_path)
+
+    if output_dir and not os.path.exists(output_dir):
+        os.makedirs(output_dir, exist_ok=True)
+
     tokenizer = ExpressionBertTokenizer.from_pretrained(args.vocab_path)
     model = LaMGen_triple(pretrain_path=abs_path + '/Pretrained_model', config=Ada_config)
 
