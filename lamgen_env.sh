@@ -10,8 +10,7 @@ conda activate lamgen
 
 # 3. Install PyTorch (Specifying official CUDA 11.8 source with +cu118 suffix)
 echo "📦 Installing PyTorch 2.4.0 (CUDA 11.8)..."
-pip install torch==2.4.0+cu118 torchvision==0.19.0+cu118 torchaudio==2.4.0+cu118 \
-    --extra-index-url https://download.pytorch.org/whl/cu118
+pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu118
 
 # 4. Install other dependencies
 echo "📦 Installing Transformers and Pandas..."
