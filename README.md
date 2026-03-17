@@ -229,8 +229,8 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 
 For questions or collaborations:
 
-* GitHub: [@cholin01](https://github.com/cholin01)
-* Email: *(qlgxx0917@gmail.com)*
+* GitHub: [@cholin01](https://github.com/cholin01) [@lingcon01](https://github.com/lingcon01)
+* Email: *(qlgxx0917@gmail.com)* *(qunsu01@gmail.com)*
 
 ---
 
