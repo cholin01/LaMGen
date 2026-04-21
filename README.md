@@ -1,6 +1,7 @@
 # 🚀 LaMGen: LLM-Based 3D Molecular Generation for Multi-Target Drug Design
 
----
+Nat Commun (2026). https://doi.org/10.1038/s41467-026-71737-w
+--- 
 
 ## 📖 Introduction
 
@@ -209,12 +210,8 @@ Use scripts in the `docking/` folder to perform molecular docking and affinity e
 
 If you use LaMGen in your work, please cite:
 
-```bibtex
-@article{LaMGen2026,
-  title={LaMGen: LLM-Based 3D Molecular Generation for Multi-Target Drug Design},
-  author={Qun Su, Qiaolin Gou},
-  year={2026}
-}
+```
+Su, Q., Gou, Q., Zhang, H. et al. LaMGen: LLM-based 3D molecular generation for multi-target drug design. Nat Commun (2026). https://doi.org/10.1038/s41467-026-71737-w
 ```
 
 ---
